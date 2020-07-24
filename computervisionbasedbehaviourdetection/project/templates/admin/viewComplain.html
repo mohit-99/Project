@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>:: CVBBD :: COMPLAIN</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="../../static/adminResources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/adminResources/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="../../static/adminResources/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../static/adminResources/css/dataTables.fixedcolumns.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../static/adminResources/css/dataTables.fixedheader.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../static/adminResources/css/sweetalert.css"/>
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="../../static/adminResources/css/main.css">
+    <link rel="stylesheet" href="../../static/adminResources/css/color_skins.css">
+    <style>
+        td.details-control {
+            background: url('../../static/adminResources/image/details_open.png') no-repeat center center;
+            cursor: pointer;
+        }
+
+        tr.shown td.details-control {
+            background: url('../../static/adminResources/image/details_close.png') no-repeat center center;
+        }
+    </style>
+</head>
+<body class="theme-cyan">
+
+<!-- Overlay For Sidebars -->
+
+<div id="wrapper">
+
+    <!-- Header -->
+    {% include 'admin/header.html' %}
+
+    <!-- Menu -->
+    {% include 'admin/menu.html' %}
+
+    <!-------------------- View Complain -------------------->
+    <div id="main-content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i
+                                class="fa fa-arrow-left"></i></a>Manage Complain</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>View Complain</h2>
+                    </div>
+                    <div class="body">
+                        <table class="table table-bordered table-striped table-hover table-responsive"
+                               style="overflow-y: scroll">
+                            <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Complain Subject</th>
+                                <th>Complain Description</th>
+                                <th>Complain Date</th>
+                                <th>Complain Time</th>
+                                <th>Complain Status</th>
+                                <th>Complain Attachment</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for i in complainVOList %}
+                                <tr>
+                                    <td>{{ i[1]['loginUsername'] }}</td>
+                                    <td>{{ i[0]['complainSubject'] }}</td>
+                                    <td>{{ i[0]['complainDescription'] }}</td>
+                                    <td>{{ i[0]['complainDate'] }}</td>
+                                    <td>{{ i[0]['complainTime'] }}</td>
+                                    <td>{{ i[0]['complainStatus'] }}</td>
+                                    <td>
+                                        <a href="{{ i[0]['complainFilePath'] }}{{ i[0]['complainFileName'] }}"
+                                           target="_blank">View</a>
+                                    </td>
+                                    <td>
+                                        <a href="/admin/loadComplainReply?complainId={{ i[0]['complainId'] }}"><i
+                                                class="fa fa-reply"
+                                                style="font-size: 20px;color:blue;"></i></a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Javascript -->
+<script src="../../static/adminResources/js/libscripts.bundle.js"></script>
+<script src="../../static/adminResources/js/vendorscripts.bundle.js"></script>
+
+<script src="../../static/adminResources/js/datatablescripts.bundle.js"></script>
+<script src="../../static/adminResources/js/dataTables.buttons.min.js"></script>
+<script src="../../static/adminResources/js/buttons.bootstrap4.min.js"></script>
+<script src="../../static/adminResources/js/buttons.colVis.min.js"></script>
+<script src="../../static/adminResources/js/buttons.html5.min.js"></script>
+<script src="../../static/adminResources/js/buttons.print.min.js"></script>
+
+<script src="../../static/adminResources/js/sweetalert.min.js"></script> <!-- SweetAlert Plugin Js -->
+
+
+<script src="../../static/adminResources/js/mainscripts.bundle.js"></script>
+<script src="../../static/adminResources/js/jquery-datatable.js"></script>
+</body>
+</html>

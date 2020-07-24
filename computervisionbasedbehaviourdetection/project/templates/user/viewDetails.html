@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CVBBD</title>
+
+    <!-- Stylesheets -->
+    <link href="../../static/userResources/css/style.css" rel="stylesheet">
+    <link href="../../static/userResources/css/responsive.css" rel="stylesheet">
+    <link rel="icon" href="../../static/userResources/images/favicon.ico" type="image/x-icon">
+
+</head>
+
+<!-- page wrapper -->
+<body class="boxed_wrapper">
+
+
+<!-- Main Header -->
+{% include 'user/menu.html' %}
+<!-- End Main Header -->
+
+
+<!--Page Title-->
+<section class="page-title centred">
+    <div class="container">
+        <div class="content-box">
+            <h1>View Details</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="/user/loadDashboard">Home</a></li>
+                <li><a href="/user/viewVideo">View Video</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+
+
+<!-- cart section -->
+<section class="cart-section cart-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 table-column">
+                <div class="table-outer">
+                    <table class="cart-table">
+                        <thead align="center">
+                        <tr>
+                            <th>R1 PC</th>
+                            <th>R1 TC</th>
+                            <th>R2 PC</th>
+                            <th>R2 TC</th>
+                            <th>R3 PC</th>
+                            <th>R3 TC</th>
+                            <th>R4 PC</th>
+                            <th>R4 TC</th>
+                        </tr>
+                        </thead>
+                        <tbody align="center">
+                        <tr>
+                            <td>{{ regionDetailList[0] }}</td>
+                            <td>{{ regionDetailList[1] }}</td>
+                            <td>{{ regionDetailList[2] }}</td>
+                            <td>{{ regionDetailList[3] }}</td>
+                            <td>{{ regionDetailList[4] }}</td>
+                            <td>{{ regionDetailList[5] }}</td>
+                            <td>{{ regionDetailList[6] }}</td>
+                            <td>{{ regionDetailList[7] }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- cart section end -->
+
+
+<!-- subscribe-style-two -->
+<section class="subscribe-style-two">
+    <div class="anim-icon">
+        <div class="icon icon-1 rotate-me"></div>
+        <div class="icon icon-2"></div>
+        <div class="icon icon-3 rotate-me"></div>
+        <div class="icon icon-4"></div>
+        <div class="icon icon-5 rotate-me"></div>
+        <div class="icon icon-6"></div>
+        <div class="icon icon-7 rotate-me"></div>
+        <div class="icon icon-8 float-bob-y"></div>
+    </div>
+    <div class="container">
+    </div>
+</section>
+<!-- subscribe-style-two end -->
+
+
+<!--&lt;!&ndash; main-footer &ndash;&gt;-->
+<!--{% include 'user/footer.html' %}-->
+<!--&lt;!&ndash; main-footer end &ndash;&gt;-->
+
+
+<!--Scroll to top-->
+<button class="scroll-top scroll-to-target" data-target="html">
+    <span class="fa fa-arrow-up"></span>
+    <span class="text">Top</span>
+</button>
+
+
+<!-- jequery plugins -->
+<script src="../../static/userResources/js/jquery.js"></script>
+<script src="../../static/userResources/js/popper.min.js"></script>
+<script src="../../static/userResources/js/bootstrap.min.js"></script>
+
+<script src="../../static/userResources/js/owl.js"></script>
+<script src="../../static/userResources/js/wow.js"></script>
+<script src="../../static/userResources/js/validation.js"></script>
+<script src="../../static/userResources/js/jquery.fancybox.js"></script>
+<script src="../../static/userResources/js/appear.js"></script>
+<script src="../../static/userResources/js/aos.js"></script>
+<script src="../../static/userResources/js/jquery.paroller.min.js"></script>
+<script src="../../static/userResources/js/jquery-ui.js"></script>
+<script src="../../static/userResources/js/jquery.bootstrap-touchspin.js"></script>
+
+<!-- main-js -->
+<script src="../../static/userResources/js/script.js"></script>
+
+</body><!-- End of .page_wrapper -->
+</html>

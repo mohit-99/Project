@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CVBBD</title>
+
+    <!-- Stylesheets -->
+    <link href="../../static/userResources/css/style.css" rel="stylesheet">
+    <link href="../../static/userResources/css/responsive.css" rel="stylesheet">
+    <link rel="icon" href="../../static/userResources/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../../static/userResources/css/styles1.css">
+    <link rel="stylesheet" type="text/css" href="../../static/userResources/css/demo1.css">
+
+</head>
+
+<!-- page wrapper -->
+<body class="boxed_wrapper">
+
+
+<!-- .preloader -->
+<div class="preloader"></div>
+<!-- /.preloader -->
+
+
+<!-- search-box-layout -->
+<div class="wraper_flyout_search">
+    <div class="table">
+        <div class="table-cell">
+            <div class="flyout-search-layer"></div>
+            <div class="flyout-search-layer"></div>
+            <div class="flyout-search-layer"></div>
+            <div class="flyout-search-close">
+                <span class="flyout-search-close-line"></span>
+                <span class="flyout-search-close-line"></span>
+            </div>
+            <div class="flyout_search">
+                <div class="flyout-search-title">
+                    <h4>Search</h4>
+                </div>
+                <div class="flyout-search-bar">
+                    <form role="search" method="get" action="#">
+                        <div class="form-row">
+                            <input type="search" placeholder="Type to search..." value="" name="s" required="">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- search-box-layout end -->
+
+
+<!-- Main Header -->
+{#{% include 'user/menu.html' %}#}
+<!-- End Main Header -->
+
+
+<!--Page Title-->
+<section class="page-title centred">
+    <div class="container">
+        <div class="content-box">
+            <h1>Add Payment Details </h1>
+            {#            <ul class="bread-crumb clearfix">#}
+            {#                <li><a href="/user/loadDashboard">Home</a></li>#}
+            {#                <li><a href="/user/loadBranch">Manage Purchase</a></li>#}
+            {#                <li><a href="/user/loadBranch">Add Purchase</a></li>#}
+            {#            </ul>#}
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+
+
+<!-- blog-single -->
+<section class="blog-single">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12 offset-lg-2 content-side">
+                <div class="blog-single-content">
+                    <div class="comments-form-area">
+                        {#                        <h2 class="group-title">Add Payment Details</h2>#}
+                        <div class="payment">
+                            <form action="/user/insertPaymentDetails" enctype="multipart/form-data" method="post"
+                                  class="comment-form default-form">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-6 col-sm-12 form-group">
+                                        <img src="/../static/userResources/images/mastercard_logo.png">
+                                        <img src="/../static/userResources/images/visa_logo.png"><br><br>
+                                        <label>Name On Card</label>
+                                        <input type="text" name="cardName" class=cardName" required>
+                                        {% if error %}
+                                            <p align="left" style="color: red"><strong>{{ error }}</strong></p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-lg-12 col-md-6 col-sm-12 form-group">
+                                        <label for="creditCard">Card Number</label>
+                                        <input type="text" size="19" maxlength="19" minlength="19" data-stripe="number"
+                                               placeholder="xxxx-xxxx-xxxx-xxxx" name="cardNumber" class="cardNumber"
+                                               required>
+                                        {% if error %}
+                                            <p align="left" style="color: red"><strong>{{ error }}</strong></p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <label for="cvv">Security Code</label>
+                                        <input type="password" name="cvv" size="3" minlength="3" maxlength="3"
+                                               placeholder="xxx" id="cvv" required>
+                                        {% if error %}
+                                            <p align="left" style="color: red"><strong>{{ error }}</strong></p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <label for="expir-date">Expiration Date</label>
+                                        <select name="expiration-month">
+                                            <option value="01">January</option>
+                                            <option value="02">February</option>
+                                            <option value="03">March</option>
+                                            <option value="04">April</option>
+                                            <option value="05">May</option>
+                                            <option value="06">June</option>
+                                            <option value="07">July</option>
+                                            <option value="08">August</option>
+                                            <option value="09">September</option>
+                                            <option value="10">October</option>
+                                            <option value="11">November</option>
+                                            <option value="12">December</option>
+                                        </select>
+                                        <select name="expiration-year">
+                                            <option value="16"> 2016</option>
+                                            <option value="17"> 2017</option>
+                                            <option value="18"> 2018</option>
+                                            <option value="19"> 2019</option>
+                                            <option value="20"> 2020</option>
+                                            <option value="21"> 2021</option>
+                                            <option value="22"> 2022</option>
+                                            <option value="23"> 2023</option>
+                                            <option value="24"> 2024</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                                        <button type="submit"><a href="/user/insertPurchase?packageId={{ packageId }}"
+                                                                 class="btn-style-two">Purchase</a></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- blog-single -->
+
+
+<!-- subscribe-style-two -->
+<section class="subscribe-style-two">
+    <div class="anim-icon">
+        <div class="icon icon-1 rotate-me"></div>
+        <div class="icon icon-2"></div>
+        <div class="icon icon-3 rotate-me"></div>
+        <div class="icon icon-4"></div>
+        <div class="icon icon-5 rotate-me"></div>
+        <div class="icon icon-6"></div>
+        <div class="icon icon-7 rotate-me"></div>
+        <div class="icon icon-8 float-bob-y"></div>
+    </div>
+    <div class="container">
+
+    </div>
+</section>
+<!-- subscribe-style-two end -->
+
+
+<!--&lt;!&ndash; main-footer &ndash;&gt;-->
+<!--<footer class="main-footer">-->
+<!--<div class="container">-->
+<!--<div class="widget-content">-->
+<!--<div class="row">-->
+<!--<div class="col-lg-4 col-md-6 col-sm-12 footer-column">-->
+<!--<div class="footer-widget logo-widget">-->
+<!--<figure class="footer-logo"><a href="index.html"><img-->
+<!--src="../../static/userResources/images/footer-logo.png" alt=""></a></figure>-->
+<!--<div class="text">Lorem ipsum dolor amet consectetur adip- ielit sed eiusm tempor incididunt ut-->
+<!--labore dolore magna aliqua enim ad minim veniam quis nostrud exercitation.-->
+<!--</div>-->
+<!--<div class="phone"><i class="fa fa-phone"></i><a href="tel:(251)235-3256">(251) 235-3256</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-lg-2 col-md-6 col-sm-12 footer-column">-->
+<!--<div class="footer-widget link-widget">-->
+<!--<h3 class="widget-title">Quick Link</h3>-->
+<!--<ul class="link-list">-->
+<!--<li><a href="#">Company History</a></li>-->
+<!--<li><a href="#">About Us</a></li>-->
+<!--<li><a href="#">Contact Us</a></li>-->
+<!--<li><a href="#">Services</a></li>-->
+<!--<li><a href="#">Privacy Policy</a></li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-lg-3 col-md-6 col-sm-12 footer-column">-->
+<!--<div class="footer-widget link-widget service-widget">-->
+<!--<h3 class="widget-title">Services</h3>-->
+<!--<ul class="link-list">-->
+<!--<li><a href="#">Company History</a></li>-->
+<!--<li><a href="#">About Us</a></li>-->
+<!--<li><a href="#">Contact Us</a></li>-->
+<!--<li><a href="#">Services</a></li>-->
+<!--<li><a href="#">Privacy Policy</a></li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-lg-3 col-md-6 col-sm-12 footer-column">-->
+<!--<div class="footer-widget contact-widget">-->
+<!--<h3 class="widget-title">Contact Info</h3>-->
+<!--<ul class="info-box">-->
+<!--<li>Flat 20, Reynolds Neck, North Hele naville, FV77 8WS</li>-->
+<!--<li><a href="tel:+2(305)587-3407">+2(305) 587-3407</a></li>-->
+<!--<li><a href="mailto:info@example.com">info@example.com</a></li>-->
+<!--</ul>-->
+<!--<ul class="footer-social">-->
+<!--<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>-->
+<!--<li><a href="#"><i class="fab fa-twitter"></i></a></li>-->
+<!--<li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>-->
+<!--<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="footer-bottom clearfix">-->
+<!--<div class="left-content pull-left">-->
+<!--<div class="copyright"><a href="#">Rivox</a> &copy; 2019 All Right Reserved</div>-->
+<!--</div>-->
+<!--<div class="right-content pull-right">-->
+<!--<ul class="footer-nav">-->
+<!--<li><a href="#">Terms of Service</a></li>-->
+<!--<li><a href="#">Privacy Policy</a></li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</footer>-->
+<!--&lt;!&ndash; main-footer end &ndash;&gt;-->
+
+
+<!--Scroll to top-->
+<button class="scroll-top scroll-to-target" data-target="html">
+    <span class="fa fa-arrow-up"></span>
+    <span class="text">Top</span>
+</button>
+
+
+<!-- jequery plugins -->
+<script src="../../static/userResources/js/jquery.js"></script>
+<script src="../../static/userResources/js/popper.min.js"></script>
+<script src="../../static/userResources/js/bootstrap.min.js"></script>
+
+<script src="../../static/userResources/js/owl.js"></script>
+<script src="../../static/userResources/js/wow.js"></script>
+<script src="../../static/userResources/js/validation.js"></script>
+<script src="../../static/userResources/js/jquery.fancybox.js"></script>
+<script src="../../static/userResources/js/appear.js"></script>
+<script src="../../static/userResources/js/isotope.js"></script>
+<script src="../../static/userResources/js/aos.js"></script>
+<script src="../../static/userResources/js/jquery.paroller.min.js"></script>
+<script src="../../static/userResources/js/jquery-ui.js"></script>
+<script src="../../static/userResources/js/jquery.bootstrap-touchspin.js"></script>
+{#<script src="../../static/userResources/js/jquery.payform.min.js" charset="utf-8"></script>#}
+<script src="../../static/userResources/js/script1.js"></script>
+<!-- main-js -->
+<script src="../../static/userResources/js/script.js"></script>
+
+</body><!-- End of .page_wrapper -->
+</html>
+

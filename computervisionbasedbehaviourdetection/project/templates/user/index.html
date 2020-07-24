@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="/X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CVBBD</title>
+
+    <!-- Stylesheets -->
+    <link href="../../static/userResources/css/style.css" rel="stylesheet">
+    <link href="../../static/userResources/css/responsive.css" rel="stylesheet">
+    <link rel="icon" href="../../static/userResources/images/favicon.ico" type="image/x-icon">
+</head>
+
+<!-- page wrapper -->
+<body class="boxed_wrapper">
+
+
+<!-- Main Header -->
+{% include 'user/menu.html' %}
+
+<!-- banner-section -->
+<section class="banner-section style-two">
+    <div class="anim-icon">
+        <div class="icon icon-2"></div>
+        <div class="icon icon-5"></div>
+        <div class="icon icon-6"></div>
+        <div class="icon icon-7"></div>
+        <div class="icon icon-8 rotate-me"></div>
+        <div class="icon icon-9 rotate-me"></div>
+        <div class="icon icon-10"></div>
+        <div class="icon icon-11 float-bob-x"></div>
+        <div class="icon icon-12 float-bob-x"></div>
+        <div class="icon icon-13 rotate-me"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                <div class="content-box">
+                    <h1>Computer Vision Based Behavior Detection</h1>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                <div class="image-box">
+                    <figure class="image float-bob-y clearfix"><img
+                            src="../../static/userResources/images/banner-image-2.png" alt=""></figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- banner-section end -->
+
+<!-- fact-counter -->
+<section class="fact-counter centred">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-12 counter-block">
+                <div class="counter-block-one wow slideInUp" data-wow-delay="100ms" data-wow-duration="1500ms">
+                    <div class="count-outer count-box">
+                        <span class="count-text">{{ complainPendingCount }}</span>
+                    </div>
+                    <div class="text">Complain Pending</div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 counter-block">
+                <div class="counter-block-one wow slideInUp" data-wow-delay="200ms" data-wow-duration="1500ms">
+                    <div class="count-outer count-box">
+                        <span class="count-text">{{ complainRepliedCount }}</span>
+                    </div>
+                    <div class="text">Complain Replied</div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 counter-block">
+                <div class="counter-block-one wow slideInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
+                    <div class="count-outer count-box">
+                        <span class="count-text">{{ feedbackReviewedCount }}</span>
+                    </div>
+                    <div class="text">Feedback Reviewed</div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 counter-block">
+                <div class="counter-block-one wow slideInUp" data-wow-delay="400ms" data-wow-duration="1500ms">
+                    <div class="count-outer count-box">
+                        <span class="count-text">{{ feedbackActiveCount }}</span>
+                    </div>
+                    <div class="text">Active Feedback</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- fact-counter end -->
+
+<!-- subscribe-style-two -->
+<section class="subscribe-style-two">
+    <div class="anim-icon">
+        <div class="icon icon-1 rotate-me"></div>
+        <div class="icon icon-2 rotate-me"></div>
+        <div class="icon icon-3 rotate-me"></div>
+        <div class="icon icon-4"></div>
+        <div class="icon icon-5 float-bob-y"></div>
+        <div class="icon icon-6"></div>
+        <div class="icon icon-7 rotate-me"></div>
+        <div class="icon icon-8 float-bob-x"></div>
+    </div>
+</section>
+<!-- subscribe-style-two end -->
+
+
+<!-- main-footer -->
+{% include 'user/footer.html' %}
+<!-- main-footer end -->
+
+
+<!--Scroll to top-->
+<button class="scroll-top scroll-to-target" data-target="html">
+    <span class="fa fa-arrow-up"></span>
+    <span class="text">Top</span>
+</button>
+
+
+<!-- jequery plugins -->
+<script src="../../static/userResources/js/jquery.js"></script>
+<script src="../../static/userResources/js/popper.min.js"></script>
+<script src="../../static/userResources/js/bootstrap.min.js"></script>
+
+<script src="../../static/userResources/js/owl.js"></script>
+<script src="../../static/userResources/js/wow.js"></script>
+<script src="../../static/userResources/js/validation.js"></script>
+<script src="../../static/userResources/js/jquery.fancybox.js"></script>
+<script src="../../static/userResources/js/appear.js"></script>
+<script src="../../static/userResources/js/aos.js"></script>
+<script src="../../static/userResources/js/jquery.paroller.min.js"></script>
+
+<!-- main-js -->
+<script src="../../static/userResources/js/script.js"></script>
+
+</body><!-- End of .page_wrapper -->
+</html>

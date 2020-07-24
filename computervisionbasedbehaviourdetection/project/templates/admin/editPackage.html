@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>:: CVBBD :: PACKAGE</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="description" content="Lucid Bootstrap 4.1.1 Admin Template">
+    <meta name="author" content="WrapTheme, design by: ThemeMakker.com">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="../../static/adminResources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/adminResources/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../static/adminResources/css/bootstrap-multiselect.css">
+    <link rel="stylesheet" href="../../static/adminResources/css/parsley.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="../../static/adminResources/css/main.css">
+    <link rel="stylesheet" href="../../static/adminResources/css/color_skins.css">
+</head>
+<body class="theme-cyan">
+
+
+<!-- Overlay For Sidebars -->
+<div id="wrapper">
+
+    <!-- Header -->
+    {% include 'admin/header.html' %}
+
+    <!-- Menu -->
+    {% include 'admin/menu.html' %}
+
+    <!-------------------- Edit Package header-------------------->
+    <div id="main-content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i
+                                class="fa fa-arrow-left"></i></a>Manage Area</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-------------------- Edit Package validation -------------------->
+            <div class="row clearfix">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>Update Package</h2>
+                        </div>
+                        <div class="body">
+                            <form id="basic-form" action="/admin/updatePackage" method="post" novalidate>
+                                {% for i in packageVOList %}
+                                    <div class="form-group">
+                                        <input type="hidden" name="packageId" value="{{ i['packageId'] }}"
+                                               class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Package Name</label>
+                                        <input type="text" name="packageName" value="{{ i['packageName'] }}"
+                                               class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Package Duration</label>
+                                        <input type="text" class="form-control" value="{{ i['packageDuration'] }}"
+                                               name="packageDuration" required>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Package Price</label>
+                                        <input type="text" name="packagePrice" value="{{ i['packagePrice'] }}"
+                                               class="form-control" required>
+                                    </div>
+                                    <br>
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                {% endfor %}
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Javascript -->
+<script src="../../static/adminResources/js/libscripts.bundle.js"></script>
+<script src="../../static/adminResources/js/vendorscripts.bundle.js"></script>
+
+<script src="../../static/adminResources/js/bootstrap-multiselect.js"></script>
+<script src="../../static/adminResources/js/parsley.min.js"></script>
+
+<script src="../../static/adminResources/js/mainscripts.bundle.js"></script>
+<script>
+    $(function () {
+        // validation needs name of the element
+        $('#food').multiselect();
+
+        // initialize after multiselect
+        $('#basic-form').parsley();
+    });
+</script>
+</body>
+</html>
+

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>REGISTER</title>
+
+    <!-- Stylesheets -->
+    <link href="../../static/userResources/css/style.css" rel="stylesheet">
+    <link href="../../static/userResources/css/responsive.css" rel="stylesheet">
+    <link rel="icon" href="../../static/userResources/images/favicon.ico" type="image/x-icon">
+
+</head>
+
+<!-- page wrapper -->
+<body class="boxed_wrapper">
+
+<!--Page Title-->
+<section class="page-title centred">
+    <div class="container">
+        <div class="content-box">
+            <h1>CREATE YOUR ACCOUNT</h1>
+            <ul class="bread-crumb clearfix">
+            </ul>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+
+
+<!-- checkout-section -->
+<section class="checkout-section">
+    <div class="container">
+        <div class="order-information">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 billing-column">
+                    <div class="billing-info">
+                        <h3>Register</h3>
+                        <form action="/user/insertRestaurant" method="post" class="billing-form default-form">
+                            <div class="row">
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    <label>Restaurant Name*</label>
+                                    <div class="field-input">
+                                        <input type="text" name="restaurantName">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                    <label>Phone Number*</label>
+                                    <div class="field-input">
+                                        <input type="tel" onkeypress='return event.charCode>=48 && event.charCode<=57'
+                                               name="restaurantNumber">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    <label>Owner Name*</label>
+                                    <div class="field-input">
+                                        <input type="text" name="restaurantOwner">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                    <label>Email Address*</label>
+                                    <div class="field-input">
+                                        <input type="email" name="loginUsername">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                    <label>Area*</label>
+                                    <div class="select-column select-box">
+                                        <select class="selectmenu" name="restaurant_AreaId">
+                                            {% for i in areaVOlist %}
+                                                <option value="{{ i['areaId'] }}">{{ i['areaName'] }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                                    <button type="submit" class="btn-style-two">Register</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top-content">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 column">
+                    <div class="customer">Returning Customer? <a href="/">Click here to Login</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- checkout-section end -->
+<!-- jequery plugins -->
+<script src="../../static/userResources/js/jquery.js"></script>
+<script src="../../static/userResources/js/popper.min.js"></script>
+<script src="../../static/userResources/js/bootstrap.min.js"></script>
+
+<script src="../../static/userResources/js/owl.js"></script>
+<script src="../../static/userResources/js/wow.js"></script>
+<script src="../../static/userResources/js/validation.js"></script>
+<script src="../../static/userResources/js/jquery.fancybox.js"></script>
+<script src="../../static/userResources/js/appear.js"></script>
+<script src="../../static/userResources/js/aos.js"></script>
+<script src="../../static/userResources/js/jquery.paroller.min.js"></script>
+<script src="../../static/userResources/js/jquery-ui.js"></script>
+<script src="../../static/userResources/js/jquery.bootstrap-touchspin.js"></script>
+
+<!-- main-js -->
+<script src="../../static/userResources/js/script.js"></script>
+
+</body><!-- End of .page_wrapper -->
+</html>

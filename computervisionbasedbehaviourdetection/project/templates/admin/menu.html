@@ -1,0 +1,78 @@
+<div id="left-sidebar" class="sidebar">
+    <div class="sidebar-scroll">
+        <div class="user-account">
+            <img src="../../static/adminResources/image/avatar.png" class="rounded-circle user-photo"
+                 alt="User Profile Picture">
+            <div class="dropdown">
+                <span>Welcome,</span>
+                <a href="javascript:void(0);" class="dropdown-toggle user-name"
+                   data-toggle="dropdown"><strong>Admin</strong></a>
+                <ul class="dropdown-menu dropdown-menu-right account">
+                    <li><a href="doctor-profile.html"><i class="icon-user"></i>My Profile</a></li>
+                    <li class="divider"></li>
+                    <li><a href="/admin/logoutSession"><i class="icon-power"></i>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#menu">Menu</a></li>
+            </li>
+        </ul>
+
+        <!--------------------Dashboard--------------------------->
+        <!-- Tab panes -->
+        <div class="tab-content p-l-0 p-r-0">
+            <div class="tab-pane active" id="menu">
+                <nav class="sidebar-nav">
+                    <ul class="main-menu metismenu">
+                        <li class="active"><a href="/admin/loadDashboard"><i class="fa fa-home"></i><span>Admin Dashboard</span></a>
+                        </li>
+
+                        <!---------------------Manage Users----------------------->
+                        <li><a href="/admin/viewUser"><i class="fa fa-users"></i><span>Manage User</span></a></li>
+
+                        <!---------------------Manage Area----------------------->
+                        <li><a href="javascript:void(0);" class="has-arrow"><i
+                                class="fa fa-map"></i><span>Manage Area</span></a>
+                            <ul>
+                                <li><a href="/admin/loadArea">Add Area</a></li>
+                                <li><a href="/admin/viewArea">View Area</a></li>
+                            </ul>
+                        </li>
+
+                        <!---------------------Manage Branch----------------------->
+                        <li><a href="/admin/viewBranch"><i class="fa fa-map"></i><span>Manage Branch</span></a></li>
+
+                        <!---------------------Manage Detection----------------------->
+                        <li><a href="/admin/viewVideo"><i
+                                class="icon-magnifier-add"></i><span>Manage Detection</span></a></li>
+
+                        <!---------------------Manage Package----------------------->
+                        <li><a href="javascript:void(0);" class="has-arrow"><i class="fa fa-folder-open"></i><span>Manage Package</span></a>
+                            <ul>
+                                <li><a href="/admin/loadPackage">Add Package</a></li>
+                                <li><a href="/admin/viewPackage">View Package</a></li>
+                            </ul>
+
+                            <!---------------------Manage Dataset----------------------->
+                        <li><a href="#Authentication" class="has-arrow"><i class="fa fa-database"></i><span>Manage Dataset</span></a>
+                            <ul>
+                                <li><a href="/admin/loadDataset">Add Dataset</a></li>
+                                <li><a href="/admin/viewDataset">View Dataset</a></li>
+                            </ul>
+                        </li>
+
+                        <!---------------------Manage Complain----------------------->
+                        <li><a href="/admin/viewComplain"><i class="fa fa-comments"></i><span>Manage Complain</span></a>
+                        </li>
+
+                        <!---------------------Manage Feedback----------------------->
+                        <li><a href="/admin/viewFeedback"><i
+                                class="fa fa-thumbs-up"></i><span>Manage Feedback</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>:: CVBBD :: USERS</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="../../static/adminResources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/adminResources/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="../../static/adminResources/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../static/adminResources/css/dataTables.fixedcolumns.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../static/adminResources/css/dataTables.fixedheader.bootstrap4.min.css">
+    <link rel="stylesheet" href="../../static/adminResources/css/sweetalert.css"/>
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="../../static/adminResources/css/main.css">
+    <link rel="stylesheet" href="../../static/adminResources/css/color_skins.css">
+    <style>
+        td.details-control {
+            background: url('../../static/adminResources/image/details_open.png') no-repeat center center;
+            cursor: pointer;
+        }
+
+        tr.shown td.details-control {
+            background: url('../../static/adminResources/image/details_close.png') no-repeat center center;
+        }
+    </style>
+</head>
+<body class="theme-cyan">
+
+<!-- Overlay For Sidebars -->
+
+<div id="wrapper">
+
+    <!-- Header -->
+    {% include 'admin/header.html' %}
+
+    <!-- Menu -->
+    {% include 'admin/menu.html' %}
+
+    <!-------------------- View Users header-------------------->
+    <div id="main-content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-8 col-sm-12">
+                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i
+                                class="fa fa-arrow-left"></i></a>Manage Users</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-------------------- Table Tools-------------------->
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>View User</h2>
+                    </div>
+                    <div class="body">
+                        <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                            <thead>
+                            <tr>
+                                <th>Restaurant Name</th>
+                                <th>Contact no.</th>
+                                <th>Restaurant Owner</th>
+                                <th>Area</th>
+                                <th>Username</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for i in userVOList %}
+                                <tr>
+                                    <td>{{ i[0]['restaurantName'] }}</td>
+                                    <td>{{ i[0]['restaurantNumber'] }}</td>
+                                    <td>{{ i[0]['restaurantOwner'] }}</td>
+                                    <td>{{ i[2]['areaName'] }}</td>
+                                    <td>{{ i[1]['loginUsername'] }}</td>
+                                    <td>
+                                        {% if i[1]['loginStatus']=="active" %}
+                                            <a href="/admin/blockUser?loginId={{ i[1]['loginId'] }}">Block<i class=""
+                                                                                                             style="..."></i></a>
+                                        {% else %}
+                                            <a href="/admin/unblockUser?loginId={{ i[1]['loginId'] }}">Unblock<i
+                                                    class="" style="..."></i></a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="../../static/adminResources/js/libscripts.bundle.js"></script>
+    <script src="../../static/adminResources/js/vendorscripts.bundle.js"></script>
+
+    <script src="../../static/adminResources/js/datatablescripts.bundle.js"></script>
+    <script src="../../static/adminResources/js/dataTables.buttons.min.js"></script>
+    <script src="../../static/adminResources/js/buttons.bootstrap4.min.js"></script>
+    <script src="../../static/adminResources/js/buttons.colVis.min.js"></script>
+    <script src="../../static/adminResources/js/buttons.html5.min.js"></script>
+    <script src="../../static/adminResources/js/buttons.print.min.js"></script>
+
+    <script src="../../static/adminResources/js/sweetalert.min.js"></script> <!-- SweetAlert Plugin Js -->
+
+
+    <script src="../../static/adminResources/js/mainscripts.bundle.js"></script>
+    <script src="../../static/adminResources/js/jquery-datatable.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CVBBD</title>
+
+    <!-- Stylesheets -->
+    <link href="../../static/userResources/css/style.css" rel="stylesheet">
+    <link href="../../static/userResources/css/responsive.css" rel="stylesheet">
+    <link rel="icon" href="../../static/userResources/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../../static/adminResources/css/star.css">
+
+</head>
+
+<!-- page wrapper -->
+<body class="boxed_wrapper">
+
+
+<!-- Main Header -->
+{% include 'user/menu.html' %}
+<!-- End Main Header -->
+
+
+<!--Page Title-->
+<section class="page-title centred">
+    <div class="container">
+        <div class="content-box">
+            <h1>View Feedback</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="/user/loadDashboard">Home</a></li>
+                <li><a href="/user/loadFeedback">Feedback</a></li>
+                <li><a href="/user/viewFeedback">View Feedback</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+<section class="blog-single">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12 offset-lg-2 content-side">
+                <div class="blog-single-content">
+                    <div class="comments-area">
+                        <h3 class="group-title">View Feedback</h3>
+                        <div class="comment-box">
+                            {% for i in feedbackVOList %}
+                                <div class="comment">
+                                    <figure class="author-thumb"><img
+                                            src="../../static/userResources/images/avatar.png"
+                                            alt=""></figure>
+                                    <div class="comment-inner">
+                                        <div class="clearfix">
+                                            <div class="comment-info pull-left">
+                                                <h4 class="name">{{ userName }}</h4>
+                                                <span class="date">{{ i['feedbackDate'] }} At {{ i['feedbackTime'] }}</span>
+                                            </div>
+                                            <span class="star" style="float: right;">
+                                                    {% for j in range(i['feedbackRating']|int) %}
+                                                        <img src="../../static/adminResources/image/star1.png"
+                                                             style="width:20px " value="{{ j['feedbackRating'] }}">
+                                                    {% endfor %}</span>
+                                        </div>
+                                        <h5>{{ i['feedbackSubject'] }}</h5>
+                                        <div class="text">{{ i['feedbackDescription'] }}<a
+                                                href="/user/deleteFeedback?feedbackId={{ i['feedbackId'] }}"><i
+                                                class="fa fa-trash" style="color:red;margin-left: 25px;"></i></a></div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+</section>
+<!-- subscribe-style-two -->
+<section class="subscribe-style-two">
+    <div class="anim-icon">
+        <div class="icon icon-1 rotate-me"></div>
+        <div class="icon icon-2"></div>
+        <div class="icon icon-3 rotate-me"></div>
+        <div class="icon icon-4"></div>
+        <div class="icon icon-5 rotate-me"></div>
+        <div class="icon icon-6"></div>
+        <div class="icon icon-7 rotate-me"></div>
+        <div class="icon icon-8 float-bob-y"></div>
+    </div>
+    <div class="container">
+    </div>
+</section>
+<!-- subscribe-style-two end -->
+
+
+<!--&lt;!&ndash; main-footer &ndash;&gt;-->
+<!--{% include 'user/footer.html' %}-->
+<!--&lt;!&ndash; main-footer end &ndash;&gt;-->
+
+
+<!--Scroll to top-->
+<button class="scroll-top scroll-to-target" data-target="html">
+    <span class="fa fa-arrow-up"></span>
+    <span class="text">Top</span>
+</button>
+
+
+<!-- jequery plugins -->
+<script src="../../static/userResources/js/jquery.js"></script>
+<script src="../../static/userResources/js/popper.min.js"></script>
+<script src="../../static/userResources/js/bootstrap.min.js"></script>
+
+<script src="../../static/userResources/js/owl.js"></script>
+<script src="../../static/userResources/js/wow.js"></script>
+<script src="../../static/userResources/js/validation.js"></script>
+<script src="../../static/userResources/js/jquery.fancybox.js"></script>
+<script src="../../static/userResources/js/appear.js"></script>
+<script src="../../static/userResources/js/isotope.js"></script>
+<script src="../../static/userResources/js/aos.js"></script>
+<script src="../../static/userResources/js/jquery.paroller.min.js"></script>
+<script src="../../static/userResources/js/jquery-ui.js"></script>
+<script src="../../static/userResources/js/jquery.bootstrap-touchspin.js"></script>
+
+<!-- main-js -->
+<script src="../../static/userResources/js/script.js"></script>
+
+</body><!-- End of .page_wrapper -->
+</html>

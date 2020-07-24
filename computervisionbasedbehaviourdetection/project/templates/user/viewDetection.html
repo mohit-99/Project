@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CVBBD</title>
+
+    <!-- Stylesheets -->
+    <link href="../../static/userResources/css/style.css" rel="stylesheet">
+    <link href="../../static/userResources/css/responsive.css" rel="stylesheet">
+    <link rel="icon" href="../../static/userResources/images/favicon.ico" type="image/x-icon">
+
+</head>
+
+<!-- page wrapper -->
+<body class="boxed_wrapper">
+
+
+<!-- Main Header -->
+{% include 'user/menu.html' %}
+<!-- End Main Header -->
+
+<!--Page Title-->
+<section class="page-title centred">
+    <div class="container">
+        <div class="content-box">
+            <h1>View Detection</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="index.html">Home</a></li>
+                <li>View Detection</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+
+
+<!-- portfolio-section -->
+<section class="portfolio-page-4 portfolio-page">
+    <div class="container">
+        <div class="sortable-masonry">
+            <div class="filters">
+                <ul class="filter-tabs centred clearfix">
+                    <li class="active filter" data-role="button" data-filter=".all"><a href="/user/viewVideo">All</a>
+                    </li>
+                    {% for row in areaVOList %}
+                        <li class="filter" data-role="button" data-filter=".design"><a
+                                href="/user/viewVideoByArea?areaId={{ row['areaId'] }}">{{ row['areaName'] }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="items-container row clearfix">
+
+                {% for i in videoVOList %}
+                    <div class="col-lg-4 col-md-6 col-sm-12 masonry-item small-column all illustration design web_development">
+                        <div class="portfolio-block-three">
+                            <div class="inner-box">
+                                <figure class="image-box">
+                                    <img src="../../static/userResources/images/Video.jpg" alt="">
+                                </figure>
+                                <div class="content-box">
+                                    <ul class="link-box">
+                                        <li><a href="{{ i['outputVideoFilePath'] }}{{ i['outputVideoFileName'] }}"
+                                               target="_blank">
+                                            <i class="fa fa-eye"></i></a></li>
+                                        <li><a href="/user/deleteVideo?videoId={{ i['videoId'] }}"><i
+                                                class="fa fa-trash"></i></a></li>
+                                        <li><a href="/user/viewDetails?videoId={{ i['videoId'] }}"><i
+                                                class="fa fa-book"></i></a></li>
+                                    </ul>
+                                    <h3><a href="#">{{ i['outputVideoFileName'] }}</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<!-- portfolio-section end -->
+
+
+<!--&lt;!&ndash; main-footer &ndash;&gt;-->
+{% include 'user/footer.html' %}
+<!--&lt;!&ndash; main-footer end &ndash;&gt;-->
+
+<!--Scroll to top-->
+<button class="scroll-top scroll-to-target" data-target="html">
+    <span class="fa fa-arrow-up"></span>
+    <span class="text">Top</span>
+</button>
+
+
+<!-- jequery plugins -->
+<script src="../../static/userResources/js/jquery.js"></script>
+<script src="../../static/userResources/js/popper.min.js"></script>
+<script src="../../static/userResources/js/bootstrap.min.js"></script>
+
+<script src="../../static/userResources/js/owl.js"></script>
+<script src="../../static/userResources/js/wow.js"></script>
+<script src="../../static/userResources/js/validation.js"></script>
+<script src="../../static/userResources/js/jquery.fancybox.js"></script>
+<script src="../../static/userResources/js/appear.js"></script>
+<script src="../../static/userResources/js/isotope.js"></script>
+<script src="../../static/userResources/js/aos.js"></script>
+<script src="../../static/userResources/js/jquery.paroller.min.js"></script>
+<script src="../../static/userResources/js/jquery-ui.js"></script>
+<script src="../../static/userResources/js/jquery.bootstrap-touchspin.js"></script>
+
+<!-- main-js -->
+<script src="../../static/userResources/js/script.js"></script>
+
+</body><!-- End of .page_wrapper -->
+</html>

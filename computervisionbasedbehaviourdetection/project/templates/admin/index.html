@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>:: CVBBD :: DASHBOARD</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="description" content="Lucid Bootstrap 4.1.1 Admin Template">
+    <meta name="author" content="WrapTheme, design by: ThemeMakker.com">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="../../static/adminResources/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/adminResources/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="../../static/adminResources/css/chartist.min.css">
+    <link rel="stylesheet" href="../../static/adminResources/css/chartist-plugin-tooltip.css">
+    <link rel="stylesheet" href="../../static/adminResources/css/toastr.min.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="../../static/adminResources/css/main.css">
+    <link rel="stylesheet" href="../../static/adminResources/css/color_skins.css">
+
+    <script src="../static/adminResources/js/highcharts.js"></script>
+    <script src="../static/adminResources/js/exporting.js"></script>
+
+    <script type="text/javascript">
+
+        function loadBranchByRestaurant() {
+
+            var restaurantId = document.getElementById("restaurantId")
+
+            var branch = document.getElementById("branch")
+
+            branch.innerHTML = ""
+
+            var ajax = new XMLHttpRequest()
+
+            ajax.onreadystatechange = function () {
+
+                if (ajax.readyState == 4) {
+
+
+                    var json = JSON.parse(ajax.responseText)
+
+                    for (var i = 0; i < json.length; i++) {
+
+                        var option = document.createElement("option")
+
+                        option.value = json[i].branchId;
+                        option.text = json[i].branchName;
+
+                        branch.options.add(option)
+                    }
+                }
+            }
+            ajax.open("get", "/admin/ajaxLoadBranchByRestaurant?restaurantId=" + restaurantId.value, true)
+
+            ajax.send()
+        }
+
+        function loadVideoByBranch() {
+
+            var branch = document.getElementById("branch")
+
+            var video = document.getElementById("video")
+
+
+            video.innerHTML = ""
+
+            var ajax = new XMLHttpRequest()
+
+            ajax.onreadystatechange = function () {
+
+                if (ajax.readyState == 4) {
+
+                    var json = JSON.parse(ajax.responseText)
+
+                    for (var i = 0; i < json.length; i++) {
+
+                        var option = document.createElement("option")
+
+                        option.value = json[i].videoId;
+                        option.text = json[i].inputVideoFileName;
+
+                        video.options.add(option)
+                    }
+                }
+            }
+            ajax.open("get", "/admin/ajaxLoadVideoByBranch?branchId=" + branch.value, true)
+
+            ajax.send()
+        }
+
+        function loadGraphByVideo() {
+
+
+            var video = document.getElementById("video");
+
+            var ajax = new XMLHttpRequest()
+
+            ajax.onreadystatechange = function () {
+
+                if (ajax.readyState == 4) {
+
+                    alert(ajax.responseText);
+
+                    var jsn = JSON.parse(ajax.responseText);
+
+                    var xdata = [];
+                    var ydata = [];
+                    ls = jsn['responseKey'];
+
+                    for (var i = 0; i < ls.length; i++) {
+                        console.log("region>>>>>" + ls[i]['regionName']);
+
+                        console.log("count>>>>>" + ls[i]['personCount']);
+
+                        xdata.push(ls[i]['regionName']);
+                        ydata.push(parseFloat(ls[i]['personCount']));
+                    }
+
+
+                    Highcharts.chart({
+                        chart: {
+                            renderTo: "container",
+
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Region Name VS Person Count'
+                        },
+                        subtitle: {
+                            text: 'Source: Occupancy Analysis'
+                        },
+                        xAxis: {
+                            categories: xdata,
+                            crosshair: true
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Person Count'
+                            }
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [{
+                            name: 'Region Name',
+                            data: ydata
+
+                        }]
+                    });
+                }
+            }
+            ajax.open("get", "/admin/loadGraphByVideo?videoId=" + video.value, true)
+
+            ajax.send()
+        }
+
+    </script>
+
+</head>
+<body class="theme-cyan">
+<!--header-->
+{% include 'admin/header.html' %}
+
+<!--menu-->
+{% include 'admin/menu.html' %}
+
+<!-- Dashboard -->
+<div id="main-content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-sm-12">
+                    <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i
+                            class="fa fa-arrow-left"></i></a>Admin Dashboard</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card text-center">
+                    <div class="body">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-6">
+                                <div class="body">
+                                    <i class="fa fa-map-marker fa-2x"></i>
+                                    <h4>{{ branchCount }}</h4>
+                                    <span>Number of Branches</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-6">
+                                <div class="body">
+                                    <i class="fa fa-thumbs-o-up fa-2x"></i>
+                                    <h4>{{ feedbackCount }}</h4>
+                                    <span>Number of Feedbacks</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-6">
+                                <div class="body">
+                                    <i class="fa fa-comments fa-2x"></i>
+                                    <h4>{{ complainCount }}</h4>
+                                    <span>Complain Pending</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-6">
+                                <div class="body">
+                                    <i class="fa fa-users fa-2x"></i>
+                                    <h4>{{ userCount }}</h4>
+                                    <span>Users</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12">
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2>All Detection</h2>
+                                <ul class="header-dropdown">
+                                    <li>
+                                        <select id="restaurantId" onchange="loadBranchByRestaurant()">
+                                            <option>Select Restaurant</option>
+                                            {% for row in restaurantList %}
+                                                <option value="{{ row['restaurantId'] }}">{{ row['restaurantName'] }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <select id="branch" onchange="loadVideoByBranch()">
+                                            <option>Select Branch</option>
+                                        </select>
+                                    </li>
+                                    <li>
+                                        <select id="video" onchange="loadGraphByVideo()">
+                                            <option>Select Video</option>
+                                        </select>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="body">
+                                <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                                <input type="hidden" name="xvalue" value=""/>
+                                <input type="hidden" name="yvalue" value=""/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Javascript -->
+<script src="../../static/adminResources/js/libscripts.bundle.js"></script>
+<script src="../../static/adminResources/js/vendorscripts.bundle.js"></script>
+
+<script src="../../static/adminResources/js/chartist.bundle.js"></script>
+<script src="../../static/adminResources/js/knob.bundle.js"></script> <!-- Jquery Knob-->
+<script src="../../static/adminResources/js/flotscripts.bundle.js"></script> <!-- flot charts Plugin Js -->
+<script src="../../static/adminResources/js/toastr.js"></script>
+<script src="../../static/adminResources/js/jquery.flot.selection.js"></script>
+
+<script src="../../static/adminResources/js/mainscripts.bundle.js"></script>
+<script src="../../static/adminResources/js/index.js"></script>
+</body>
+</html>

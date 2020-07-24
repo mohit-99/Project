@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CVBBD</title>
+
+    <!-- Stylesheets -->
+    <link href="../../static/userResources/css/style.css" rel="stylesheet">
+    <link href="../../static/userResources/css/responsive.css" rel="stylesheet">
+    <link rel="icon" href="../../static/userResources/images/favicon.ico" type="image/x-icon">
+
+</head>
+
+<!-- page wrapper -->
+<body class="boxed_wrapper">
+
+<!-- Main Header -->
+{% include 'user/menu.html' %}
+<!-- End Main Header -->
+
+
+<!--Page Title-->
+<section class="page-title centred">
+    <div class="container">
+        <div class="content-box">
+            <h1>Complain</h1>
+            <ul class="bread-crumb clearfix">
+                <li><a href="/user/loadDashboard">Home</a></li>
+                <li><a href="/user/loadComplain">Complain</a></li>
+                <li><a href="/user/loadComplain">Post Complain</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+
+
+<!-- blog-single -->
+<section class="blog-single">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12 offset-lg-2 content-side">
+                <div class="blog-single-content">
+                    <div class="comments-form-area">
+                        <h2 class="group-title">Post Complain</h2>
+                        <form action="/user/insertComplain" enctype="multipart/form-data" method="post"
+                              class="comment-form default-form">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-6 col-sm-12 form-group">
+                                    <input type="text" name="complainSubject" placeholder="Complain Subject*" required>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <textarea name="complainDescription" placeholder="Complain Description*"
+                                              required></textarea>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <input type="file" accept="image/*" name="complainFilename">
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group message-btn">
+                                    <button type="submit" class="btn-style-two">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- blog-single -->
+
+
+<!--&lt;!&ndash; main-footer &ndash;&gt;-->
+<!--{% include 'user/footer.html' %}-->
+<!--&lt;!&ndash; main-footer end &ndash;&gt;-->
+
+
+<!--Scroll to top-->
+<button class="scroll-top scroll-to-target" data-target="html">
+    <span class="fa fa-arrow-up"></span>
+    <span class="text">Top</span>
+</button>
+
+
+<!-- jequery plugins -->
+<script src="../../static/userResources/js/jquery.js"></script>
+<script src="../../static/userResources/js/popper.min.js"></script>
+<script src="../../static/userResources/js/bootstrap.min.js"></script>
+
+<script src="../../static/userResources/js/owl.js"></script>
+<script src="../../static/userResources/js/wow.js"></script>
+<script src="../../static/userResources/js/validation.js"></script>
+<script src="../../static/userResources/js/jquery.fancybox.js"></script>
+<script src="../../static/userResources/js/appear.js"></script>
+<script src="../../static/userResources/js/isotope.js"></script>
+<script src="../../static/userResources/js/aos.js"></script>
+<script src="../../static/userResources/js/jquery.paroller.min.js"></script>
+<script src="../../static/userResources/js/jquery-ui.js"></script>
+<script src="../../static/userResources/js/jquery.bootstrap-touchspin.js"></script>
+
+<!-- main-js -->
+<script src="../../static/userResources/js/script.js"></script>
+
+</body><!-- End of .page_wrapper -->
+</html>
